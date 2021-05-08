@@ -103,7 +103,7 @@ namespace SampleSource.Domain
                 throw new ArgumentNullException(nameof(snackbarMessageQueue));
             
             yield return new DemoItem(
-                "型のメンバを動的に呼び出す",
+                "Lists",
                 typeof(Lists),
                 null
                 )

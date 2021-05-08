@@ -57,9 +57,9 @@ namespace SampleSource.Domain
             {
                 DateTime getDay = theDay.AddDays(i);
                 SelectableViewModel v = new SelectableViewModel();
-                v.Code = char.Parse(getDay.ToString("ddd", System.Globalization.CultureInfo.GetCultureInfo("ja-JP")));
+                v.Code = char.Parse(getDay.ToString("ddd"));
                 v.Name = "chk" + (i+1).ToString();
-                v.Description = getDay.ToString("dddd", System.Globalization.CultureInfo.GetCultureInfo("ja-JP"));
+                v.Description = getDay.ToString("dddd");
                 rtn.Add(v);
             }
             return rtn;

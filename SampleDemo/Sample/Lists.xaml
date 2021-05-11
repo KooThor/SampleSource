@@ -7,9 +7,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
     xmlns:domain="clr-namespace:SampleSource.Domain"
-    mc:Ignorable="d"
-    d:DesignWidth="600"
-    d:DesignHeight="300">
+    mc:Ignorable="d">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -34,13 +32,11 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" HorizontalAlignment="Center" >
-            <TextBlock x:Name="txt_ShowSet" Text=" "></TextBlock>
-        </DockPanel>
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="0">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
-                <ItemsControl x:Name="m1List"
+                <ItemsControl x:Name="m1List" Width="250"
                     ItemsSource="{Binding Items1}"
                     Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
@@ -108,8 +104,8 @@
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
                 <TextBlock Text="　"></TextBlock>
             </StackPanel>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
-                    <ItemsControl x:Name="m2List"
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
+                <ItemsControl x:Name="m2List"  Width="250"
                         ItemsSource="{Binding Items2}"
                         Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
@@ -166,6 +162,104 @@
                     <Button x:Name="btn_m2allDel" Click="btn_Click"
                       ToolTip="全解除"
                       Content="✖" Width="32" Height="32" FontSize="15"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </DockPanel>
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center" >
+            <TextBlock Text=" "></TextBlock>
+        </DockPanel>
+        <DockPanel Grid.Row="2" HorizontalAlignment="Center" >
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="500">
+                <DockPanel HorizontalAlignment="Center" >
+                    <CheckBox x:Name="chk_yobi1" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="一" />
+                    <CheckBox x:Name="chk_yobi2" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="二" />
+                    <CheckBox x:Name="chk_yobi3" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="三" />
+                    <CheckBox x:Name="chk_yobi4" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="四" />
+                    <CheckBox x:Name="chk_yobi5" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="五" />
+                    <CheckBox x:Name="chk_yobi6" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="六" />
+                    <CheckBox x:Name="chk_yobi7" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="日" />
+                </DockPanel>
+            </ScrollViewer>
+            <materialDesign:PopupBox
+                     x:Name="btn_m3pop"
+                     Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                     PlacementMode="TopAndAlignCentres"
+                     ToolTipService.Placement="Bottom"
+                     ToolTip="選択ボタン"
+                     PopupMode="MouseOver"
+                     VerticalAlignment="Bottom" Width="32" Height="32" Margin="5,0,0,0">
+                <materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PackIcon Kind="Cog" Width="25" Height="25"/>
+                </materialDesign:PopupBox.ToggleContent>
+                <StackPanel>
+                    <Button x:Name="btn_m3allSel" Click="btn_Click_ChkBox"
+                              ToolTip="全選択"
+                              Opacity="1"
+                              Content="✔" Width="32" Height="32" FontSize="15"/>
+                    <Button x:Name="btn_m3allDel" Click="btn_Click_ChkBox"
+                              ToolTip="全解除"
+                              Content="✖" Width="32" Height="32" FontSize="15"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+        </DockPanel>
+        <DockPanel Grid.Row="3" HorizontalAlignment="Center" >
+            <TextBlock Text=" "></TextBlock>
+        </DockPanel>
+        <DockPanel Grid.Row="4" HorizontalAlignment="Center" >
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="500">
+                <DockPanel HorizontalAlignment="Center">
+                    <CheckBox x:Name="chk_nichi1" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="1日" />
+                    <CheckBox x:Name="chk_nichi2" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="2日" />
+                    <CheckBox x:Name="chk_nichi3" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="3日" />
+                    <CheckBox x:Name="chk_nichi4" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="4日" />
+                    <CheckBox x:Name="chk_nichi5" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="5日" />
+                    <CheckBox x:Name="chk_nichi6" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="6日" />
+                    <CheckBox x:Name="chk_nichi7" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="7日" />
+                    <CheckBox x:Name="chk_nichi8" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="8日" />
+                    <CheckBox x:Name="chk_nichi9" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="9日" />
+                    <CheckBox x:Name="chk_nichi10" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="10日" />
+                    <CheckBox x:Name="chk_nichi11" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="11日" />
+                    <CheckBox x:Name="chk_nichi12" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="12日" />
+                    <CheckBox x:Name="chk_nichi13" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="13日" />
+                    <CheckBox x:Name="chk_nichi14" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="14日" />
+                    <CheckBox x:Name="chk_nichi15" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="15日" />
+                    <CheckBox x:Name="chk_nichi16" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="16日" />
+                    <CheckBox x:Name="chk_nichi17" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="17日" />
+                    <CheckBox x:Name="chk_nichi18" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="18日" />
+                    <CheckBox x:Name="chk_nichi19" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="19日" />
+                    <CheckBox x:Name="chk_nichi20" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="20日" />
+                    <CheckBox x:Name="chk_nichi21" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="21日" />
+                    <CheckBox x:Name="chk_nichi22" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="22日" />
+                    <CheckBox x:Name="chk_nichi23" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="23日" />
+                    <CheckBox x:Name="chk_nichi24" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="24日" />
+                    <CheckBox x:Name="chk_nichi25" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="25日" />
+                    <CheckBox x:Name="chk_nichi26" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="26日" />
+                    <CheckBox x:Name="chk_nichi27" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="27日" />
+                    <CheckBox x:Name="chk_nichi28" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="28日" />
+                    <CheckBox x:Name="chk_nichi29" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="29日" />
+                    <CheckBox x:Name="chk_nichi30" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="30日" />
+                    <CheckBox x:Name="chk_nichi31" Style="{StaticResource MaterialDesignFilterChipAccentOutlineCheckBox}" IsChecked="False" Content="31日" />
+                </DockPanel>
+            </ScrollViewer>
+            <materialDesign:PopupBox
+                     x:Name="btn_m4pop"
+                     Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                     PlacementMode="TopAndAlignCentres"
+                     ToolTipService.Placement="Bottom"
+                     ToolTip="選択ボタン"
+                     PopupMode="MouseOver"
+                     VerticalAlignment="Bottom" Width="32" Height="32" Margin="5,0,0,0">
+                <materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PackIcon Kind="Cog" Width="25" Height="25"/>
+                </materialDesign:PopupBox.ToggleContent>
+                <StackPanel>
+                    <Button x:Name="btn_m4allSel" Click="btn_Click_ChkBox"
+                              ToolTip="全選択"
+                              Opacity="1"
+                              Content="✔" Width="32" Height="32" FontSize="15"/>
+                    <Button x:Name="btn_m4allDel" Click="btn_Click_ChkBox"
+                              ToolTip="全解除"
+                              Content="✖" Width="32" Height="32" FontSize="15"/>
                 </StackPanel>
             </materialDesign:PopupBox>
         </DockPanel>

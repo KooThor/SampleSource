@@ -5,47 +5,12 @@ using System.Linq;
 
 namespace SampleSource.Domain
 {
-    public class ListsAndGridsViewModel : ViewModelBase
+    public class ListsViewModel : ViewModelBase
     {
-        public ListsAndGridsViewModel()
+        public ListsViewModel()
         {
             Items1 = CreateData_Day();
             Items2 = CreateData_Date();
-            Items3 = CreateData_Day();
-
-            foreach (var model in Items3)
-            {
-                model.PropertyChanged += (sender, args) =>
-                {
-                    if (args.PropertyName == nameof(SelectableViewModel.IsSelected))
-                        OnPropertyChanged(nameof(IsAllItems1Selected));
-                };
-            }
-        }
-
-        public bool? IsAllItems1Selected
-        {
-            get
-            {
-                var selected = Items3.Select(item => item.IsSelected).Distinct().ToList();
-                return selected.Count == 1 ? selected.Single() : (bool?) null;
-            }
-            set
-            {
-                if (value.HasValue)
-                {
-                    SelectAll(value.Value, Items3);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private static void SelectAll(bool select, IEnumerable<SelectableViewModel> models)
-        {
-            foreach (var model in models)
-            {
-                model.IsSelected = select;
-            }
         }
 
         private static ObservableCollection<SelectableViewModel> CreateData_Day()
@@ -82,10 +47,7 @@ namespace SampleSource.Domain
 
         public ObservableCollection<SelectableViewModel> Items1 { get; }
         public ObservableCollection<SelectableViewModel> Items2 { get; }
-        public ObservableCollection<SelectableViewModel> Items3 { get; }
         public string ShowSet1 { get; set; }
         public string ShowSet2 { get; set; }
-
-        public IEnumerable<string> Foods => new[] { "Burger", "Fries", "Shake", "Lettuce" };
     }
 }

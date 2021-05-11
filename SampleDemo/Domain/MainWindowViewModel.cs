@@ -114,11 +114,15 @@ namespace SampleSource.Domain
             yield return new DemoItem(
                 "Expander",
                 typeof(Expander),
+                null
+                /*
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Expander>(),
                     DocumentationLink.StyleLink("Expander")
-                });
+                }
+                */
+                );
         }
 
         private bool DemoItemsFilter(object obj)

@@ -183,7 +183,7 @@
             <materialDesign:PopupBox
                      x:Name="btn_m3pop"
                      Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                     PlacementMode="TopAndAlignCentres"
+                     PlacementMode="RightAndAlignMiddles"
                      ToolTipService.Placement="Bottom"
                      ToolTip="選択ボタン"
                      PopupMode="MouseOver"
@@ -244,7 +244,7 @@
             <materialDesign:PopupBox
                      x:Name="btn_m4pop"
                      Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                     PlacementMode="TopAndAlignCentres"
+                     PlacementMode="RightAndAlignMiddles"
                      ToolTipService.Placement="Bottom"
                      ToolTip="選択ボタン"
                      PopupMode="MouseOver"
